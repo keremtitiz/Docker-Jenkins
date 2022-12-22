@@ -1,0 +1,4 @@
+ssh -o StrictHostKeyChecking=no test@${serverip} 'rm -rf php-test-app'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'git clone "https://github.com/keremtitiz/php-test-app.git"'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'docker build -t php-test-app ./php-test-app/'
+ssh -o StrictHostKeyChecking=no test@${serverip} 'docker run -p 8080:80 -d php-test-app'
