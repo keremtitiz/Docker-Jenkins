@@ -1,0 +1,8 @@
+doctl compute droplet create ${servername} --tag-names docker-host \
+    --image debian-11-x64 --region ams3 --size s-1vcpu-1gb \
+    --ssh-keys #####SSH-TOKEN GELMELI####### --user-data-file /var/lib/jenkins/do-cloud-config \
+    --enable-ipv6 --enable-monitoring --enable-private-networking --enable-backups
+    
+sleep 30
+
+doctl compute droplet get ${servername}
